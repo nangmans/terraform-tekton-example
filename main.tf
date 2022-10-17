@@ -1,7 +1,7 @@
 resource "google_compute_network" "test-network" {                      //module name은 임의로 짓기 가능
   project      = var.project
   name = var.network_name
-  auto_create_subenetworks = false
+  auto_create_subnetworks = false
 }
 
 resource "google_compute_subnetwork" "test-subnetwork" {
