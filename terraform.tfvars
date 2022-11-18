@@ -4,4 +4,4 @@ zone = "asia-northeast3-a"
 
 region = "asia-northeast3"
 
-network_name = "test-vpc"
+network_name = "default"
