@@ -1,12 +1,18 @@
-resource "google_compute_network" "test-network" {                      //module name은 임의로 짓기 가능
-  project      = var.project
-  name = var.network_name
-  auto_create_subnetworks = false
-}
+resource "google_compute_firewall" "rules" {
+  name = "test-firewall"
+  network = var.network_name
+  direction = "INGRESS"
+  priority = 1000
+  source_ranges = [
+    "0.0.0.0/0"
+  ]
+  source_tags = [
+    "some-tag"
+  ]
+  allow {
+    protocol  = "tcp"
+    ports     = ["80", "8080", "1000-2000"]
+  }
 
-resource "google_compute_subnetwork" "test-subnetwork" {
-  name          = "test-subent"
-  ip_cidr_range = "10.2.0.0/16"
-  region        = var.region
-  network      = google_compute_network.test-network.name
+
 }
