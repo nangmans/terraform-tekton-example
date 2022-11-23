@@ -3,9 +3,6 @@ resource "google_compute_firewall" "rules" {
   network = var.network_name
   direction = "INGRESS"
   priority = 1000
-  log_config {
-    metadata = "INCLUDE_ALL_METADATA"
-  }
   source_ranges = [
     "0.0.0.0/0"
   ]
